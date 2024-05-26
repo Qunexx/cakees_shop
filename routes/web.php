@@ -28,21 +28,21 @@ Route::get('/about', function () {
 })->name('about');
 Route::get('/account', function () {
     return view('userAccount');
-})->name('account');
+})->name('account')->middleware('auth');
 Route::get('/cart', function () {
     return view('cart');
-})->name('cart');
+})->name('cart')->middleware('auth');
 Route::get('/delivery', function () {
     return view('delivery');
 })->name('delivery');
 Route::get('/order', function () {
     return view('order');
-})->name('order');
+})->name('order')->middleware('auth');
 
 Route::get('/order/history', function () {
     return view('orderhistory');
-})->name('order.history');
+})->name('order.history')->middleware('auth');
 
 Route::get('/favorites', function () {
     return view('favorites');
-})->name('favorites');
+})->name('favorites')->middleware('auth');
