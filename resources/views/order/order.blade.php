@@ -73,7 +73,7 @@
                                 </div>
                             </div>
 
-                            <!-- Order Summary -->
+                            <!-- order Summary -->
                             <h5>Order Summary</h5>
                             <div class="row mb-3">
                                 <div class="col-md-12">

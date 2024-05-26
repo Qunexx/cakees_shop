@@ -156,7 +156,7 @@
                 </div>
             </div>
             <div class="btn-box">
-                <a href="./product">
+                <a href="">
                     More
                 </a>
             </div>

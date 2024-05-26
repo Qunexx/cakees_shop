@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 
-    <!-- Order History Section -->
+    <!-- order History Section -->
     <section class="order_history_section layout_padding-bottom">
         <div class="container">
             <div class="heading_container heading_center">
@@ -22,7 +22,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <!-- Example Order History -->
+                            <!-- Example order History -->
                             <tr>
                                 <td>12345</td>
                                 <td>2023-05-20</td>
@@ -54,6 +54,6 @@
             </div>
         </div>
     </section>
-    <!-- end Order History Section -->
+    <!-- end order History Section -->
 
 @endsection
