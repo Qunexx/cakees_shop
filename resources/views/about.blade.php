@@ -15,7 +15,7 @@
                 <div class="detail-box">
                     <div class="heading_container">
                         <h2>
-                            We Are Cakees_shop
+                            We Are Торт’ Эль
                         </h2>
                     </div>
                     <p>

@@ -46,7 +46,7 @@
             <nav class="navbar navbar-expand-lg custom_nav-container ">
                 <a class="navbar-brand" href="{{route("index")}}">
             <span>
-              Cakees_shop
+              Торт’ Эль
             </span>
                 </a>
 
@@ -57,20 +57,20 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav  ">
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{route("index")}}">Main</a>
+                            <a class="nav-link" href="{{route("index")}}">Главная</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{route("about")}}">About</a>
+                            <a class="nav-link" href="{{route("about")}}">О нас</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("products")}}">Catalog</a>
+                            <a class="nav-link" href="{{route("catalog")}}">Каталог</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("contact")}}">Contact Us</a>
+                            <a class="nav-link" href="{{route("contact")}}">Связь с нами</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("delivery")}}">Delievery</a>
+                            <a class="nav-link" href="{{route("delivery")}}">Доставка</a>
                         </li>
                         <!-- Cart icon in the navigation bar -->
                         <li class="nav-item">
@@ -100,12 +100,24 @@
                             </a>
                         </li>
 
+                        <!-- Heart icon for favorites -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('favorites') }}" id="favorites-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                     class="bi bi-heart" width="24" height="24">
+                                    <path fill-rule="evenodd"
+                                          d="M12 4.318a6.24 6.24 0 0 0-8.832 8.832l.086.085L12 20.576l8.746-8.746.086-.085a6.24 6.24 0 0 0-8.832-8.832zM11.293 5.293a4.24 4.24 0 0 1 6 6L12 17.586 6.707 12.293a4.24 4.24 0 0 1 6-6z"
+                                    />
+                                </svg>
+                            </a>
+                        </li>
+
                         <!-- Cart Modal -->
                         <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+                                        <h5 class="modal-title" id="cartModalLabel">Корзина товаров</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -118,8 +130,8 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <a href="./checkout" class="btn btn-primary">Pay</a>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                        <a href="{{route('order')}}" class="btn btn-primary">Оплата</a>
                                     </div>
                                 </div>
                             </div>
@@ -153,13 +165,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Войти') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>
                                 </li>
                             @endif
                         @else
@@ -244,7 +256,7 @@
             <div class="col-md-4 footer-col">
                 <div class="footer_detail">
                     <a href="" class="footer-logo">
-                        Cakees_shop
+                        Торт’ Эль
                     </a>
                     <p>
                         Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with

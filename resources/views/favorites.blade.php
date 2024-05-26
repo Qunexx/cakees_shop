@@ -5,9 +5,9 @@
     <section class="cart_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
-                <h2>
-                    Your Shopping Cart
-                </h2>
+                <h1>
+                    Ваши избранные товары
+                </h1>
             </div>
             <div class="row">
                 <!-- Example cart item -->

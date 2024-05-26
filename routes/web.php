@@ -13,14 +13,13 @@ Route::post("/logout", function (){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/index', function () {
     return view('index');
 })->name("index");
-Route::get('/product', function () {
-    return view('product');
-})->name('products');
+Route::get('/catalog', function () {
+    return view('catalog');
+})->name('catalog');
 Route::get('/contact', function () {
     return view('contact');
 })->name("contact");
@@ -36,6 +35,14 @@ Route::get('/cart', function () {
 Route::get('/delivery', function () {
     return view('delivery');
 })->name('delivery');
+Route::get('/order', function () {
+    return view('order');
+})->name('order');
+
 Route::get('/order/history', function () {
     return view('delivery');
 })->name('order.history');
+
+Route::get('/favorites', function () {
+    return view('favorites');
+})->name('favorites');

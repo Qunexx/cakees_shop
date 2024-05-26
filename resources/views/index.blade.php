@@ -1,9 +1,8 @@
 @extends('layouts.layout')
-
 @section('content')
     <!-- slider section -->
     <section class="slider_section">
-        <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
+        <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="container">
@@ -15,7 +14,7 @@
                                         Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="" class="btn1">Order Now</a>
+                                        <a href="{{ route('catalog') }}" class="btn1">Order Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +36,7 @@
                                         Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="{{ route('products') }}" class="btn1">Order Now</a>
+                                        <a href="{{ route('catalog') }}" class="btn1">Order Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +58,7 @@
                                         Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="{{ route('products') }}" class="btn1">Order Now</a>
+                                        <a href="{{ route('catalog') }}" class="btn1">Order Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -78,6 +77,14 @@
                     <li data-bs-target="#customCarousel1" data-bs-slide-to="1"></li>
                     <li data-bs-target="#customCarousel1" data-bs-slide-to="2"></li>
                 </ol>
+                <a class="carousel-control-prev" href="#customCarousel1" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true" style="font-size: 3em;"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#customCarousel1" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true" style="font-size: 3em;"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
             </div>
         </div>
     </section>
@@ -138,7 +145,7 @@
                 <div class="col-md-6">
                     <div class="detail-box">
                         <div class="heading_container">
-                            <h2>We Are Cakees_shop</h2>
+                            <h2>We Are Торт’ Эль</h2>
                         </div>
                         <p>
                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All
@@ -266,13 +273,14 @@
                 </div>
             </div>
             <div class="btn-box">
-                <a href="./product">View All Products</a>
+                <a href="{{route("catalog")}}">View All Products</a>
             </div>
         </div>
     </section>
 @endsection
 <!-- end product section -->
 
+<!-- client section -->
 <!-- client section -->
 @section("content4")
     <section class="client_section layout_padding">
@@ -284,29 +292,21 @@
                 <div class="owl-carousel client_owl-carousel">
                     <div class="item">
                         <div class="box">
-                            <div class="img-box">
-                                <img src="{{ asset('assets/images/client1.jpg') }}" alt="" class="box-img">
-                            </div>
                             <div class="detail-box">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                                 </p>
                                 <h6>Klara Smith</h6>
-                                <p>magna aliqua</p>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="box">
-                            <div class="img-box">
-                                <img src="{{ asset('assets/images/client2.jpg') }}" alt="" class="box-img">
-                            </div>
                             <div class="detail-box">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                                 </p>
                                 <h6>Jessica Hawk</h6>
-                                <p>magna aliqua</p>
                             </div>
                         </div>
                     </div>
@@ -315,6 +315,7 @@
         </div>
     </section>
 @endsection
+
 <!-- end client section -->
 <!-- contact section -->
 @section("content5")
@@ -364,5 +365,6 @@
         </div>
     </section>
 @endsection
+
 
 <!-- end contact section -->
