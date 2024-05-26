@@ -1,6 +1,6 @@
 @extends("layouts.layout")
 @section("content")
-    <!-- product section -->
+    <!-- products section -->
 
     <section class="product_section layout_padding">
         <div class="container">

@@ -12,8 +12,8 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="shortcut icon" href="{{asset("assets/images/favicon.png")}}" type="">
-
-    <title> CakeesShop</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title> Tort`El</title>
 
 
 
@@ -44,7 +44,7 @@
     <header class="header_section">
         <div class="container">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="{{route("index")}}">
+                <a class="navbar-brand" href="{{route("main.index")}}">
             <span>
               Торт’ Эль
             </span>
@@ -57,24 +57,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav  ">
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{route("index")}}">Главная</a>
+                            <a class="nav-link" href="{{route("main.index")}}">Главная</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{route("about")}}">О нас</a>
+                            <a class="nav-link" href="{{route("about.index")}}">О нас</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("catalog")}}">Каталог</a>
+                            <a class="nav-link" href="{{route("products.index")}}">Каталог</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("contact")}}">Связь с нами</a>
+                            <a class="nav-link" href="{{route("contact.index")}}">Связь с нами</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("delivery")}}">Доставка</a>
+                            <a class="nav-link" href="{{route("delivery.index")}}">Доставка</a>
                         </li>
                         <!-- Cart icon in the navigation bar -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("cart")}}" id="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <a class="nav-link" href="{{route("cart.index")}}" id="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="ht   tp://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
             <g>
                 <g>
@@ -102,7 +102,7 @@
 
                         <!-- Heart icon for favorites -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('favorites') }}" id="favorites-icon">
+                            <a class="nav-link" href="{{ route('favorites.index') }}" id="favorites-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                      class="bi bi-heart" width="24" height="24">
                                     <path fill-rule="evenodd"
@@ -131,7 +131,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                                        <a href="{{route('order')}}" class="btn btn-primary">Оплата</a>
+                                        <a href="{{route('order.index')}}" class="btn btn-primary">Оплата</a>
                                     </div>
                                 </div>
                             </div>
@@ -180,16 +180,21 @@
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('account') }}">
+                                    <a class="dropdown-item" href="{{ route('profile.index') }}">
                                         {{ __('Мой аккаунт') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('order.history') }}">
+                                    @if(Auth::user()->role == 'manager')
+                                        <a class="dropdown-item" href="{{ route('manager.dashboard') }}">
+                                            {{ __('Меню менеджера') }}
+                                        </a>
+                                    @endif
+                                    <a class="dropdown-item" href="{{ route('order.history.index') }}">
                                         {{ __('История заказов') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('favorites') }}">
+                                    <a class="dropdown-item" href="{{ route('favorites.index') }}">
                                         {{ __('Избранные товары') }}
                                     </a>
-                                    <form id="account-form" action="{{ route('account') }}" method="POST" class="d-none">
+                                    <form id="account-form" action="{{ route('profile.index') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
