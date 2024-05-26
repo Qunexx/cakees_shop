@@ -25,9 +25,7 @@ Route::post("/logout", function (){
 Auth::routes();
 
 
-Route::get('/main', function () {
-    return view('main.index');
-})->name("main.index");
+Route::get('/main', [MainController::class, 'index'])->name('main.index');
 
 Route::get('/contact', function () {
     return view('contact.contact');
@@ -80,5 +78,3 @@ Route::middleware(['auth'])->group(function () {
 // Маршруты для товаров
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/{id}', [ProductController::class, 'show'])->name('products.show');
-
-

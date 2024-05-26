@@ -14,7 +14,7 @@
                                         Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="{{ route('catalog') }}" class="btn1">Order Now</a>
+                                        <a href="{{ route('products.index') }}" class="btn1">Order Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                         Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="{{ route('catalog') }}" class="btn1">Order Now</a>
+                                        <a href="{{ route('products.index') }}" class="btn1">Order Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                         Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="{{ route('catalog') }}" class="btn1">Order Now</a>
+                                        <a href="{{ route('products.index') }}" class="btn1">Order Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -159,128 +159,45 @@
 @endsection
 <!-- end about section -->
 
-<!-- product section -->
+<!-- products section -->
 @section("content3")
     <section class="product_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
                 <h2>Our Products</h2>
             </div>
+
             <div class="row">
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                        <div>
-                            <div class="img-box">
-                                <img src="{{ asset('assets/images/p1.png') }}" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <a href="">Wedding Cake</a>
-                                <h6>$38</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                        <div>
-                            <div class="img-box">
-                                <img src="{{ asset('assets/images/p2.png') }}" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <a href="">Cake</a>
-                                <h6>$15</h6>
+
+                <div class="row">
+                    @foreach($products as $product)
+                        <div class="col-sm-6 col-md-4 col-lg-3 mb-4" data-id="{{ $product->id }}">
+                            <div class="card h-100">
+                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">{{ $product->name }}</h5>
+                                    <p class="card-text">{{Str::limit($product->description, 10)}}</p>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ $product->price }} руб</h6>
+                                    <button class="btn btn-primary add-to-cart-btn" data-id="{{ $product->id }}">Добавить в корзину</button>
+
+
+                                    <a class="btn btn-secondary mt-3" href="{{route("products.show",$product->id)}}" data-id="{{$product->id}}">Подробнее о изделии</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
+
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                        <div>
-                            <div class="img-box">
-                                <img src="{{ asset('assets/images/p3.png') }}" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <a href="">Cupcake</a>
-                                <h6>$30</h6>
-                            </div>
-                        </div>
-                    </div>
+                <div class="btn-box">
+                    <a href="{{route("products.index")}}">View All Products</a>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                        <div>
-                            <div class="img-box">
-                                <img src="{{ asset('assets/images/p4.png') }}" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <a href="">Birthday Cake</a>
-                                <h6>$35</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                        <div>
-                            <div class="img-box">
-                                <img src="{{ asset('assets/images/p5.png') }}" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <a href="">Cupcake</a>
-                                <h6>$12</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                        <div>
-                            <div class="img-box">
-                                <img src="{{ asset('assets/images/p6.png') }}" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <a href="">Birthday Cake</a>
-                                <h6>$32</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                        <div>
-                            <div class="img-box">
-                                <img src="{{ asset('assets/images/p7.png') }}" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <a href="">Cake</a>
-                                <h6>$35</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                        <div>
-                            <div class="img-box">
-                                <img src="{{ asset('assets/images/p8.png') }}" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <a href="">Cupcake</a>
-                                <h6>$15</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-box">
-                <a href="{{route("catalog")}}">View All Products</a>
             </div>
         </div>
     </section>
 @endsection
-<!-- end product section -->
+<!-- end products section -->
 
-<!-- client section -->
+
 <!-- client section -->
 @section("content4")
     <section class="client_section layout_padding">
