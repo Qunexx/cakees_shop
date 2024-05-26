@@ -40,7 +40,7 @@ Route::get('/order', function () {
 })->name('order');
 
 Route::get('/order/history', function () {
-    return view('delivery');
+    return view('orderhistory');
 })->name('order.history');
 
 Route::get('/favorites', function () {

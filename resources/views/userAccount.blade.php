@@ -5,7 +5,7 @@
     <section class="account_section layout_padding-bottom">
         <div class="container">
             <div class="heading_container heading_center">
-                <h2 class="mt-5">Personal Account</h2>
+                <h2 class="mt-5">Личный кабинет</h2>
             </div>
 
             <div class="row mt-5">
@@ -16,19 +16,19 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name" />
+                                        <input type="text" class="form-control" placeholder="Имя" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name" />
+                                        <input type="text" class="form-control" placeholder="Фамилия" />
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Middle Name" />
+                                        <input type="text" class="form-control" placeholder="Отчество" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -46,7 +46,7 @@
                             </div>
 
                             <!-- Address Information -->
-                            <h5>Address Information</h5>
+                            <h5>Ваш адрес</h5>
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -56,7 +56,7 @@
                             </div>
 
                             <!-- Delivery Options -->
-                            <h5>Delivery Options</h5>
+                            <h5>Способ доставки</h5>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-check">
@@ -77,7 +77,7 @@
                             </div>
 
                             <!-- Payment Methods -->
-                            <h5>Payment Methods</h5>
+                            <h5>Способ оплаты</h5>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-check">
@@ -99,12 +99,12 @@
 
                             <!-- Order History -->
                             <div class="btn-box mb-3">
-                                <a href="{{ route('order.history') }}" class="btn btn-secondary">Order History</a>
+                                <a href="{{ route('order.history') }}" class="btn btn-secondary">История заказов</a>
                             </div>
 
                             <!-- Save Button -->
                             <div class="btn-box">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
                             </div>
                         </form>
                     </div>
