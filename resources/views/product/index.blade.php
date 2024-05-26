@@ -17,9 +17,12 @@
                                 <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;">
                                 <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">{{ $product->name }}</h5>
-                                    <p class="card-text">{{ $product->description }}</p>
-                                    <h6 class="card-subtitle mb-2 text-muted">${{ $product->price }}</h6>
-                                    <button class="btn btn-primary add-to-cart-btn" data-id="{{ $product->id }}">Add to Cart</button>
+                                    <p class="card-text">{{Str::limit($product->description, 10)}}</p>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ $product->price }} руб</h6>
+                                    <button class="btn btn-primary add-to-cart-btn" data-id="{{ $product->id }}">Добавить в корзину</button>
+
+
+                                    <a class="btn btn-secondary mt-3" href="{{route("products.show",$product->id)}}" data-id="{{$product->id}}">Подробнее о изделии</a>
                                 </div>
                             </div>
                         </div>

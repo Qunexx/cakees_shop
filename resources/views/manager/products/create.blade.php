@@ -26,7 +26,7 @@
                 <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
             </div>
             <div class="form-group">
-                <label for="price">Цена</label>
+                <label for="price">Цена(в руб)</label>
                 <input type="number" class="form-control" id="price" name="price" required>
             </div>
             <div class="form-group">

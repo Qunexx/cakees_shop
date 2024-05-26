@@ -45,7 +45,7 @@
                 </div>
         </div>
         </div>
-                </div>
+
             @else
                 <div class="row">
                     @foreach($products as $product)
@@ -54,8 +54,8 @@
                                 <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;">
                                 <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">{{ $product->name }}</h5>
-                                    <p class="card-text">{{ $product->description }}</p>
-                                    <h6 class="card-subtitle mb-2 text-muted">${{ $product->price }}</h6>
+                                    <p class="card-text">{{Str::limit($product->description, 10)}}</p>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ $product->price }} руб</h6>
                                     <div class="mt-auto">
                                         <a href="{{ route('manager.products.edit', $product->id) }}" class="btn btn-warning w-100 mb-2">Редактировать</a>
                                         <form action="{{ route('manager.products.destroy', $product->id) }}" method="POST" class="d-inline-block w-100">
@@ -71,6 +71,7 @@
                 </div>
             @endif
         </div>
+
     </section>
 
 @endsection

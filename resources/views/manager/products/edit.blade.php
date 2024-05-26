@@ -25,7 +25,7 @@
                 <textarea class="form-control" id="description" name="description" rows="3" required>{{ $product->description }}</textarea>
             </div>
             <div class="form-group">
-                <label for="price">Цена</label>
+                <label for="price">Цена(в руб)</label>
                 <input type="number" class="form-control" id="price" name="price" value="{{ $product->price }}" required>
             </div>
             <div class="form-group">
