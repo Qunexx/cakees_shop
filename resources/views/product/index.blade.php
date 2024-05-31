@@ -5,7 +5,7 @@
     <section class="product_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
-                <h2>Our Products</h2>
+                <h2>Наши изделия</h2>
             </div>
 
             <div class="row">
