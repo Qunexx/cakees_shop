@@ -11,7 +11,9 @@
                                 <div class="detail-box">
                                     <h1>Delicious Cakes</h1>
                                     <p>
-                                        Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                                        Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat
+                                        hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias,
+                                        veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                     </p>
                                     <div class="btn-box">
                                         <a href="{{ route('products.index') }}" class="btn1">Order Now</a>
@@ -33,7 +35,9 @@
                                 <div class="detail-box">
                                     <h1>Delicious Cakes</h1>
                                     <p>
-                                        Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                                        Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat
+                                        hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias,
+                                        veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                     </p>
                                     <div class="btn-box">
                                         <a href="{{ route('products.index') }}" class="btn1">Order Now</a>
@@ -55,7 +59,9 @@
                                 <div class="detail-box">
                                     <h1>Delicious Cakes</h1>
                                     <p>
-                                        Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                                        Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat
+                                        hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias,
+                                        veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                     </p>
                                     <div class="btn-box">
                                         <a href="{{ route('products.index') }}" class="btn1">Order Now</a>
@@ -95,41 +101,41 @@
 @section("content1")
     <section class="cat_section">
         <div class="container">
-            <div  class="row">
+            <div class="row">
                 <div class="col-md-4">
                     <a href="{{route('products.index')}}" class="box-link">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="{{ asset('assets/images/c1.jpg') }}" alt="">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="{{ asset('assets/images/c1.jpg') }}" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>Birthday Cakes</h5>
+                            </div>
                         </div>
-                        <div class="detail-box">
-                            <h5>Birthday Cakes</h5>
-                        </div>
-                    </div>
                     </a>
                 </div>
                 <div class="col-md-4">
                     <a href="{{route('products.index')}}" class="box-link">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="{{ asset('assets/images/c2.jpg') }}" alt="">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="{{ asset('assets/images/c2.jpg') }}" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>Wedding Cakes</h5>
+                            </div>
                         </div>
-                        <div class="detail-box">
-                            <h5>Wedding Cakes</h5>
-                        </div>
-                    </div>
                     </a>
                 </div>
                 <div class="col-md-4">
                     <a href="{{route('products.index')}}" class="box-link">
-                    <div class="box">
-                        <div class="img-box">
-                            <img  src="{{ asset('assets/images/c3.jpg') }}" alt="">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="{{ asset('assets/images/c3.jpg') }}" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>Cupcakes</h5>
+                            </div>
                         </div>
-                        <div class="detail-box">
-                            <h5>Cupcakes</h5>
-                        </div>
-                    </div>
                     </a>
                 </div>
             </div>
@@ -154,7 +160,10 @@
                             <h2>We Are Торт’ Эль</h2>
                         </div>
                         <p>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All
+                            There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered alteration in some form, by injected humour, or randomised words which don't look
+                            even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be
+                            sure there isn't anything embarrassing hidden in the middle of text. All
                         </p>
                         <a href="">Read More</a>
                     </div>
@@ -179,15 +188,15 @@
                     @foreach($products as $product)
                         <div class="col-sm-6 col-md-4 col-lg-3 mb-4" data-id="{{ $product->id }}">
                             <div class="card h-100">
-                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;">
+                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}"
+                                     class="card-img-top img-fluid" style="height: 200px; object-fit: cover;">
                                 <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">{{ $product->name }}</h5>
                                     <p class="card-text">{{Str::limit($product->description, 10)}}</p>
                                     <h6 class="card-subtitle mb-2 text-muted">{{ $product->price }} руб</h6>
-                                    <button class="btn btn-primary add-to-cart-btn" data-id="{{ $product->id }}">Добавить в корзину</button>
 
-
-                                    <a class="btn btn-secondary mt-3" href="{{route("products.show",$product->id)}}" data-id="{{$product->id}}">Подробнее о изделии</a>
+                                    <a class="btn btn-secondary mt-3" href="{{route("products.show",$product->id)}}"
+                                       data-id="{{$product->id}}">Подробнее о изделии</a>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +226,8 @@
                         <div class="box">
                             <div class="detail-box">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                                 </p>
                                 <h6>Klara Smith</h6>
                             </div>
@@ -227,7 +237,8 @@
                         <div class="box">
                             <div class="detail-box">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                                 </p>
                                 <h6>Jessica Hawk</h6>
                             </div>
@@ -257,22 +268,25 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="name" placeholder="ФИО" required />
+                                        <input type="text" class="form-control" name="name" placeholder="ФИО" required/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" name="email" placeholder="Почта" required />
+                                        <input type="email" class="form-control" name="email" placeholder="Почта"
+                                               required/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" maxlength="15"  name="phone" placeholder="Номер телефона" required />
+                                        <input type="text" class="form-control" maxlength="15" name="phone"
+                                               placeholder="Номер телефона" required/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <textarea class="form-control" name="message" placeholder="Сообщение" rows="4" required></textarea>
+                                        <textarea class="form-control" name="message" placeholder="Сообщение" rows="4"
+                                                  required></textarea>
                                     </div>
                                 </div>
                             </div>

@@ -41,7 +41,7 @@ Route::get('/delivery', function () {
     return view('delivery.delivery');
 })->name('delivery.index');
 Route::get('/order', function () {
-    return view('order.order');
+    return view('order.index');
 })->name('order.index')->middleware('auth');
 
 Route::get('/order/history', function () {
@@ -77,11 +77,21 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/manager/products/update/{id}', [ManagerProductController::class, 'update'])->name('manager.products.update')->middleware(ManagerRoleMiddleware::class);
     Route::delete('/manager/products/destroy/{id}', [ManagerProductController::class, 'destroy'])->name('manager.products.destroy')->middleware(ManagerRoleMiddleware::class);
 
-    // AJAX routes for managing orders
+
     Route::post('/manager/orders/update-status/{id}', [OrderController::class, 'updateStatus'])->name('manager.orders.updateStatus')->middleware(ManagerRoleMiddleware::class);
     });
 
 // Маршруты для товаров
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/{id}', [ProductController::class, 'show'])->name('products.show');
+
+
+
+Route::middleware('auth')->group(function() {
+    Route::get('cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('cart/add', [CartController::class, 'add'])->name('cart.add');
+    Route::delete('cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
+    Route::get('checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+});
+
 

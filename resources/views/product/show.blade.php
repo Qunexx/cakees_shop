@@ -2,6 +2,16 @@
 
 @section('content')
     <div class="container my-5">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="alert alert-success">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-6">
                 <div class="product-image">
@@ -16,7 +26,11 @@
                     <p class="product-description">{{ $product->description }}</p>
                     </div>
                     <h4 class="product-price">Цена: {{ $product->price }}руб</h4>
-                    <button class="btn btn-primary add-to-cart-btn" data-id="{{ $product->id }}">Добавить в корзину</button>
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <button type="submit" class="btn btn-primary add-to-cart-btn mb-2">Добавить в корзину</button>
+                    </form>
                     <a class="btn btn-secondary" href="{{route("products.index")}}">Назад</a>
                 </div>
             </div>

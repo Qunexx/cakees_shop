@@ -1,9 +1,19 @@
 
 @extends("layouts.layout")
 @section("content")
-    <!-- products section -->
+
     <section class="product_section layout_padding">
         <div class="container">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
             <div class="heading_container heading_center">
                 <h2>Наши изделия</h2>
             </div>
@@ -19,10 +29,14 @@
                                     <h5 class="card-title">{{ $product->name }}</h5>
                                     <p class="card-text">{{Str::limit($product->description, 10)}}</p>
                                     <h6 class="card-subtitle mb-2 text-muted">{{ $product->price }} руб</h6>
-                                    <button class="btn btn-primary add-to-cart-btn" data-id="{{ $product->id }}">Добавить в корзину</button>
 
+                                    <form action="{{ route('cart.add') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <button type="submit" class="btn btn-primary add-to-cart-btn mb-2">Добавить в корзину</button>
+                                    </form>
 
-                                    <a class="btn btn-secondary mt-3" href="{{route("products.show",$product->id)}}" data-id="{{$product->id}}">Подробнее о изделии</a>
+                                    <a class="btn btn-secondary mt-auto" href="{{route("products.show",$product->id)}}" data-id="{{$product->id}}">Подробнее о изделии</a>
                                 </div>
                             </div>
                         </div>
@@ -34,13 +48,5 @@
 
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-                button.addEventListener('click', function () {
-                    alert('Added to cart: ' + this.getAttribute('data-id'));
-                });
-            });
-        });
-    </script>
+
 @endsection
