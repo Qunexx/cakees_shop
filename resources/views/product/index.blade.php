@@ -1,4 +1,4 @@
-<!-- resources/views/products/index.blade.php -->
+
 @extends("layouts.layout")
 @section("content")
     <!-- products section -->

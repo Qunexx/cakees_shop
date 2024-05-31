@@ -24,6 +24,14 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Заявки на обратную связь</h5>
+                        <a href="{{ route('manager.contacts') }}" class="btn btn-primary">Перейти</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
         <div class="row mt-5">

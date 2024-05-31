@@ -27,9 +27,9 @@ Auth::routes();
 
 Route::get('/main', [MainController::class, 'index'])->name('main.index');
 
-Route::get('/contact', function () {
-    return view('contact.contact');
-})->name("contact.index");
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+Route::post('/contacts/store', [ContactController::class, 'store'])->name('contact.store');
+
 Route::get('/about', function () {
     return view('about.about');
 })->name('about.index');
@@ -65,6 +65,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manager/products', [ManagerProductController::class, 'index'])->name('manager.products')->middleware(ManagerRoleMiddleware::class);
     Route::get('/manager/orders', [OrderController::class, 'index'])->name('manager.orders')->middleware(ManagerRoleMiddleware::class);
 
+    Route::get('/manager/orders', [OrderController::class, 'index'])->name('manager.orders')->middleware(ManagerRoleMiddleware::class);
+
+    Route::get('/manager/contacts', [ContactController::class, 'list'])->name('manager.contacts')->middleware(ManagerRoleMiddleware::class);
+    Route::delete('/manager/contacts/destroy/{id}', [ContactController::class, 'destroy'])->name('manager.contacts.destroy')->middleware(ManagerRoleMiddleware::class);
+
 
     Route::get('/manager/products/create', [ManagerProductController::class, 'create'])->name('manager.products.create')->middleware(ManagerRoleMiddleware::class);
     Route::post('/manager/products/store', [ManagerProductController::class, 'store'])->name('manager.products.store')->middleware(ManagerRoleMiddleware::class);
@@ -73,8 +78,10 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/manager/products/destroy/{id}', [ManagerProductController::class, 'destroy'])->name('manager.products.destroy')->middleware(ManagerRoleMiddleware::class);
 
     // AJAX routes for managing orders
-    Route::post('/manager/orders/update-status/{id}', [OrderController::class, 'updateStatus'])->name('manager.orders.updateStatus')->middleware(ManagerRoleMiddleware::class);});
+    Route::post('/manager/orders/update-status/{id}', [OrderController::class, 'updateStatus'])->name('manager.orders.updateStatus')->middleware(ManagerRoleMiddleware::class);
+    });
 
 // Маршруты для товаров
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/{id}', [ProductController::class, 'show'])->name('products.show');
+
