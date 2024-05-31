@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" value="{{ $profile->phone_number ?? '' }}" required>
+                                        <input type="text" class="form-control" name="phone_number" placeholder="Номер телефона" value="{{ $profile->phone_number ?? '' }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="address" placeholder="Address" value="{{ $profile->address ?? '' }}" required>
+                                        <input type="text" class="form-control" name="address" placeholder="Адрес" value="{{ $profile->address ?? '' }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="delivery_options" id="delivery" value="delivery" {{ ($profile->delivery_options ?? '') == 'delivery' ? 'checked' : '' }} required>
                                         <label class="form-check-label" for="delivery">
-                                            Delivery
+                                            Доставка
                                         </label>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="delivery_options" id="pickup" value="pickup" {{ ($profile->delivery_options ?? '') == 'pickup' ? 'checked' : '' }} required>
                                         <label class="form-check-label" for="pickup">
-                                            Pickup
+                                            С собой
                                         </label>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="payment_methods" id="card" value="card" {{ ($profile->payment_methods ?? '') == 'card' ? 'checked' : '' }} required>
                                         <label class="form-check-label" for="card">
-                                            Card
+                                            Картой
                                         </label>
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="payment_methods" id="cash" value="cash" {{ ($profile->payment_methods ?? '') == 'cash' ? 'checked' : '' }} required>
                                         <label class="form-check-label" for="cash">
-                                            Cash
+                                            Наличными
                                         </label>
                                     </div>
                                 </div>
