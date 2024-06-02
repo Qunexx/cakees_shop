@@ -67,14 +67,14 @@
                             <a class="nav-link" href="{{route("products.index")}}">Каталог</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("contact.index")}}">Связь с нами</a>
+                            <a class="nav-link" href="{{route("contacts.index")}}">Связь с нами</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route("delivery.index")}}">Доставка</a>
                         </li>
-                        <!-- Cart icon in the navigation bar -->
+                        <!-- Cart icon in the navigation bar data-bs-toggle="modal"-->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("cart.index")}}" id="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <a class="nav-link" href="{{route("cart.index")}}" id="cart-icon"  data-bs-target="#cartModal">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="ht   tp://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
             <g>
                 <g>
@@ -112,54 +112,7 @@
                             </a>
                         </li>
 
-                        <!-- Cart Modal -->
-                        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="cartModalLabel">Корзина товаров</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
 
-                                        </div>
-                                        <div class="total-box">
-                                            <h3>Total: $<span id="total-price">213</span></h3>
-
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                                        <a href="{{route('order.index')}}" class="btn btn-primary">Оплата</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <script>
-                            // Example JavaScript to handle quantity changes and remove item
-                            function removeItem(itemId) {
-                                // Implement the remove item logic here
-                            }
-
-                            function updateTotal() {
-                                let total = 0;
-                                document.querySelectorAll('.quantity-box input').forEach(input => {
-                                    const price = parseFloat(input.closest('.detail-box').querySelector('h6').textContent.replace('$', ''));
-                                    const quantity = parseInt(input.value);
-                                    total += price * quantity;
-                                });
-                                document.getElementById('total-price').textContent = total.toFixed(2);
-                            }
-
-                            document.querySelectorAll('.quantity-box input').forEach(input => {
-                                input.addEventListener('change', updateTotal);
-                            });
-
-                            updateTotal();
-                        </script>
-                            </a>
                             <!-- Authentication Links справа -->
 
                         @guest
@@ -193,6 +146,9 @@
                                     </a>
                                     <a class="dropdown-item" href="{{ route('favorites.index') }}">
                                         {{ __('Избранные товары') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('reviews.index') }}">
+                                        {{ __('Мои отзывы') }}
                                     </a>
                                     <form id="account-form" action="{{ route('profile.index') }}" method="POST" class="d-none">
                                         @csrf

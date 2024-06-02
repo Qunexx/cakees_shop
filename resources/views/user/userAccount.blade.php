@@ -97,6 +97,9 @@
                             <div class="btn-box mb-3">
                                 <a href="{{ route('order.history.index') }}" class="btn btn-secondary">История заказов</a>
                             </div>
+                            <div class="btn-box mb-3">
+                                <a href="{{ route('reviews.index') }}" class="btn btn-secondary">Мои отзывы</a>
+                            </div>
 
                             <!-- Save Button -->
                             <div class="btn-box">
@@ -108,7 +111,6 @@
             </div>
         </div>
     </section>
-    <!-- end Personal Account Section -->
 
     <script>
         document.getElementById('profile-form').addEventListener('submit', function(e) {

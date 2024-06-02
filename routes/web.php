@@ -34,9 +34,6 @@ Route::get('/about', function () {
     return view('about.about');
 })->name('about.index');
 
-Route::get('/cart', function () {
-    return view('cart.cart');
-})->name('cart.index')->middleware('auth');
 Route::get('/delivery', function () {
     return view('delivery.delivery');
 })->name('delivery.index');
@@ -93,5 +90,20 @@ Route::middleware('auth')->group(function() {
     Route::delete('cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
     Route::get('checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 });
+
+Route::middleware('auth')->group(function() {
+    Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::put('/reviews/update/{id}', [ReviewController::class,'update'])->name('reviews.update');
+    Route::get('reviews', [ReviewController::class, 'index'])->name('reviews.index');
+    Route::get('reviews/{id}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+    Route::delete('reviews/{id}/delete', [ReviewController::class, 'destroy'])->name('reviews.delete');
+
+});
+
+
+
+
+
+
 
 
