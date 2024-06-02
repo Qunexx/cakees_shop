@@ -33,6 +33,7 @@
     <link href="{{asset("assets/css/responsive.css")}}" rel="stylesheet" />
 
 
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
@@ -74,8 +75,8 @@
                         </li>
                         <!-- Cart icon in the navigation bar data-bs-toggle="modal"-->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("cart.index")}}" id="cart-icon"  data-bs-target="#cartModal">
-                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="ht   tp://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                            <a class="nav-link" href="{{route("cart.index")}}" id="cart-icon"  >
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
             <g>
                 <g>
                     <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -141,7 +142,7 @@
                                             {{ __('Меню менеджера') }}
                                         </a>
                                     @endif
-                                    <a class="dropdown-item" href="{{ route('order.history.index') }}">
+                                    <a class="dropdown-item" href="{{ route('orders.index') }}">
                                         {{ __('История заказов') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('favorites.index') }}">

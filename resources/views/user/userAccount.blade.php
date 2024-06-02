@@ -95,7 +95,7 @@
 
                             <!-- Order History -->
                             <div class="btn-box mb-3">
-                                <a href="{{ route('order.history.index') }}" class="btn btn-secondary">История заказов</a>
+                                <a href="{{ route('order.index') }}" class="btn btn-secondary">История заказов</a>
                             </div>
                             <div class="btn-box mb-3">
                                 <a href="{{ route('reviews.index') }}" class="btn btn-secondary">Мои отзывы</a>

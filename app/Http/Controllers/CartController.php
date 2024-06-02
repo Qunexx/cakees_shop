@@ -74,6 +74,16 @@ class CartController extends Controller
 
     public function checkout()
     {
-        return view('order.index');
+        $cart = auth()->user()->cart()->with('cartitems.product')->first();
+        if (!$cart || !$cart->hasItems()) {
+            return view('cart.empty');
+        }
+        $cartItems = $cart->cartitems;
+        $totalPrice = $cartItems->reduce(function ($carry, $item) {
+            return $carry + $item->quantity * $item->product->price;
+        }, 0);
+        return view('order.checkout', compact('cart', 'cartItems', 'totalPrice'));
     }
+
+
 }

@@ -107,3 +107,13 @@ Route::middleware('auth')->group(function() {
     Route::delete('favorites/{id}/remove', [FavoriteController::class, 'remove'])->name('favorites.remove');
 });
 
+Route::middleware('auth')->group(function() {
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+    Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout.index');
+    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+
+    Route::patch('/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
+});
+
+
