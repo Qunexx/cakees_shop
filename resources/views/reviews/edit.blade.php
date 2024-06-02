@@ -40,4 +40,12 @@
             </div>
         </div>
     </div>
+
+    <div class="footer"></div>
 @endsection
+<style>
+    .footer {
+        margin-top: 20%; /* добавляем отступ сверху, чтобы отодвинуть footer вниз */
+    }
+</style>
+

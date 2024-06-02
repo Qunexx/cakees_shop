@@ -6,7 +6,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Manager\DashboardController;
 use App\Http\Controllers\NewsSliderController;
-use App\Http\Controllers\Manager\OrderController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\Manager\ManagerProductController;
 use App\Http\Controllers\ProductController;
@@ -78,7 +78,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/manager/orders/update-status/{id}', [OrderController::class, 'updateStatus'])->name('manager.orders.updateStatus')->middleware(ManagerRoleMiddleware::class);
     });
 
-// Маршруты для товаров
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/{id}', [ProductController::class, 'show'])->name('products.show');
 
@@ -88,7 +87,9 @@ Route::middleware('auth')->group(function() {
     Route::get('cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('cart/add', [CartController::class, 'add'])->name('cart.add');
     Route::delete('cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
-    Route::get('checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::get('cart/order', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::get('cart/order/confirm', [CartController::class, 'checkout'])->name('cart.confirm');
+
 });
 
 Route::middleware('auth')->group(function() {
@@ -100,10 +101,9 @@ Route::middleware('auth')->group(function() {
 
 });
 
-
-
-
-
-
-
+Route::middleware('auth')->group(function() {
+    Route::get('favorites', [FavoriteController::class, 'index'])->name('favorites.index');
+    Route::post('favorites/add', [FavoriteController::class, 'add'])->name('favorites.add');
+    Route::delete('favorites/{id}/remove', [FavoriteController::class, 'remove'])->name('favorites.remove');
+});
 

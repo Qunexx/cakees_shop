@@ -10,7 +10,7 @@ class FavoriteController extends Controller
 {
     public function index()
     {
-        $favorites = Favorite::where('user_id', Auth::id())->get();
+        $favorites = Favorite::where('user_id', auth()->id())->get();
         return view('favorite.index', compact('favorites'));
     }
 
@@ -21,19 +21,23 @@ class FavoriteController extends Controller
         ]);
 
         Favorite::create([
-            'user_id' => Auth::id(),
+            'user_id' => auth()->id(),
             'product_id' => $request->product_id,
         ]);
 
-        return back()->with('success', 'Product added to favorites.');
+        return back()->with('success', 'Товар добавлен в избранное.');
     }
 
     public function remove($id)
     {
-        $favorite = Favorite::where('user_id', Auth::id())->where('product_id', $id)->firstOrFail();
-        $favorite->delete();
+        $favorite = Favorite::where('user_id',  auth()->id())->where('product_id', $id)->first();
+        if ($favorite) {
+            $favorite->delete();
+            return back()->with('success', 'Товар удалён из избранного.');
+        }
 
-        return back()->with('success', 'Product removed from favorites.');
+        return back()->with('error', 'Товар не найден в избранном.');
     }
+
 }
 
