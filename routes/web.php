@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Manager\DashboardController;
+use App\Http\Controllers\Manager\ManagerOrderController;
 use App\Http\Controllers\NewsSliderController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentMethodController;
@@ -56,55 +57,50 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
+Route::middleware(['auth'])->prefix('manager')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('manager.dashboard')->middleware(ManagerRoleMiddleware::class);
+    Route::get('/contacts', [ContactController::class, 'list'])->name('manager.contacts')->middleware(ManagerRoleMiddleware::class);
+    Route::delete('/contacts/destroy/{id}', [ContactController::class, 'destroy'])->name('manager.contacts.destroy')->middleware(ManagerRoleMiddleware::class);
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/manager', [DashboardController::class, 'index'])->name('manager.dashboard')->middleware(ManagerRoleMiddleware::class);
-    Route::get('/manager/products', [ManagerProductController::class, 'index'])->name('manager.products')->middleware(ManagerRoleMiddleware::class);
-    Route::get('/manager/orders', [OrderController::class, 'index'])->name('manager.orders')->middleware(ManagerRoleMiddleware::class);
+    Route::get('/products', [ManagerProductController::class, 'index'])->name('manager.products')->middleware(ManagerRoleMiddleware::class);
+    Route::get('/products/create', [ManagerProductController::class, 'create'])->name('manager.products.create')->middleware(ManagerRoleMiddleware::class);
+    Route::post('/products/store', [ManagerProductController::class, 'store'])->name('manager.products.store')->middleware(ManagerRoleMiddleware::class);
+    Route::get('/products/edit/{id}', [ManagerProductController::class, 'edit'])->name('manager.products.edit')->middleware(ManagerRoleMiddleware::class);
+    Route::put('/products/update/{id}', [ManagerProductController::class, 'update'])->name('manager.products.update')->middleware(ManagerRoleMiddleware::class);
+    Route::delete('/products/destroy/{id}', [ManagerProductController::class, 'destroy'])->name('manager.products.destroy')->middleware(ManagerRoleMiddleware::class);
 
-    Route::get('/manager/orders', [OrderController::class, 'index'])->name('manager.orders')->middleware(ManagerRoleMiddleware::class);
-
-    Route::get('/manager/contacts', [ContactController::class, 'list'])->name('manager.contacts')->middleware(ManagerRoleMiddleware::class);
-    Route::delete('/manager/contacts/destroy/{id}', [ContactController::class, 'destroy'])->name('manager.contacts.destroy')->middleware(ManagerRoleMiddleware::class);
-
-
-    Route::get('/manager/products/create', [ManagerProductController::class, 'create'])->name('manager.products.create')->middleware(ManagerRoleMiddleware::class);
-    Route::post('/manager/products/store', [ManagerProductController::class, 'store'])->name('manager.products.store')->middleware(ManagerRoleMiddleware::class);
-    Route::get('/manager/products/edit/{id}', [ManagerProductController::class, 'edit'])->name('manager.products.edit')->middleware(ManagerRoleMiddleware::class);
-    Route::put('/manager/products/update/{id}', [ManagerProductController::class, 'update'])->name('manager.products.update')->middleware(ManagerRoleMiddleware::class);
-    Route::delete('/manager/products/destroy/{id}', [ManagerProductController::class, 'destroy'])->name('manager.products.destroy')->middleware(ManagerRoleMiddleware::class);
-
-
-    Route::post('/manager/orders/update-status/{id}', [OrderController::class, 'updateStatus'])->name('manager.orders.updateStatus')->middleware(ManagerRoleMiddleware::class);
+    Route::get('/orders', [ManagerOrderController::class, 'index'])->name('manager.orders.index')->middleware(ManagerRoleMiddleware::class);
+    Route::get('/orders/edit/{id}', [ManagerOrderController::class, 'edit'])->name('manager.orders.edit')->middleware(ManagerRoleMiddleware::class);
+    Route::put('/orders/update/{id}', [ManagerOrderController::class, 'updateStatus'])->name('manager.orders.update')->middleware(ManagerRoleMiddleware::class);
     });
 
-Route::get('products', [ProductController::class, 'index'])->name('products.index');
-Route::get('products/{id}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 
 
 Route::middleware('auth')->group(function() {
-    Route::get('cart', [CartController::class, 'index'])->name('cart.index');
-    Route::post('cart/add', [CartController::class, 'add'])->name('cart.add');
-    Route::delete('cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
-    Route::get('cart/order', [CartController::class, 'checkout'])->name('cart.checkout');
-    Route::get('cart/order/confirm', [CartController::class, 'checkout'])->name('cart.confirm');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+    Route::delete('/cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
+    Route::get('/cart/order', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::get('/cart/order/confirm', [CartController::class, 'checkout'])->name('cart.confirm');
 
 });
 
 Route::middleware('auth')->group(function() {
-    Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
     Route::put('/reviews/update/{id}', [ReviewController::class,'update'])->name('reviews.update');
-    Route::get('reviews', [ReviewController::class, 'index'])->name('reviews.index');
-    Route::get('reviews/{id}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
-    Route::delete('reviews/{id}/delete', [ReviewController::class, 'destroy'])->name('reviews.delete');
+    Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+    Route::get('/reviews/{id}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+    Route::delete('/reviews/{id}/delete', [ReviewController::class, 'destroy'])->name('reviews.delete');
 
 });
 
 Route::middleware('auth')->group(function() {
-    Route::get('favorites', [FavoriteController::class, 'index'])->name('favorites.index');
-    Route::post('favorites/add', [FavoriteController::class, 'add'])->name('favorites.add');
-    Route::delete('favorites/{id}/remove', [FavoriteController::class, 'remove'])->name('favorites.remove');
+    Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
+    Route::post('/favorites/add', [FavoriteController::class, 'add'])->name('favorites.add');
+    Route::delete('/favorites/{id}/remove', [FavoriteController::class, 'remove'])->name('favorites.remove');
 });
 
 Route::middleware('auth')->group(function() {
