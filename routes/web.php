@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FavoriteController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Manager\ManagerProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Middleware\AdminRoleMiddleware;
 use App\Http\Middleware\ManagerRoleMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,42 +27,45 @@ Route::post("/logout", function (){
 
 Auth::routes();
 
-
+//главная
 Route::get('/main', [MainController::class, 'index'])->name('main.index');
 
+//контакты
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 Route::post('/contacts/store', [ContactController::class, 'store'])->name('contact.store');
 
+//о нас
 Route::get('/about', function () {
     return view('about.about');
 })->name('about.index');
 
+
+
+//доставка
 Route::get('/delivery', function () {
     return view('delivery.delivery');
 })->name('delivery.index');
-Route::get('/order', function () {
-    return view('order.index');
-})->name('order.index')->middleware('auth');
 
-Route::get('/order/history', function () {
-    return view('orderhistory.orderhistory');
-})->name('order.history.index')->middleware('auth');
-
-Route::get('/favorites', function () {
-    return view('favorite.favorites');
-})->name('favorites.index')->middleware('auth');
-
-
+//маршруты пользователя
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile.index');
     Route::post('/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
 });
 
 
+//Маршруты администратора
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard')->middleware(AdminRoleMiddleware::class);
+    Route::get('/users', [AdminController::class, 'index'])->name('admin.users')->middleware(AdminRoleMiddleware::class);
+    Route::get('/contacts', [ContactController::class, 'adminList'])->name('admin.contacts')->middleware(AdminRoleMiddleware::class);
+    Route::delete('/contacts/destroy/{id}', [ContactController::class, 'adminDestroy'])->name('admin.contacts.destroy')->middleware(AdminRoleMiddleware::class);
+});
+
+//Маршруты менеджера
 Route::middleware(['auth'])->prefix('manager')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('manager.dashboard')->middleware(ManagerRoleMiddleware::class);
-    Route::get('/contacts', [ContactController::class, 'list'])->name('manager.contacts')->middleware(ManagerRoleMiddleware::class);
-    Route::delete('/contacts/destroy/{id}', [ContactController::class, 'destroy'])->name('manager.contacts.destroy')->middleware(ManagerRoleMiddleware::class);
+    Route::get('/contacts', [ContactController::class, 'managerList'])->name('manager.contacts')->middleware(ManagerRoleMiddleware::class);
+    Route::delete('/contacts/destroy/{id}', [ContactController::class, 'managerDestroy'])->name('manager.contacts.destroy')->middleware(ManagerRoleMiddleware::class);
 
     Route::get('/products', [ManagerProductController::class, 'index'])->name('manager.products')->middleware(ManagerRoleMiddleware::class);
     Route::get('/products/create', [ManagerProductController::class, 'create'])->name('manager.products.create')->middleware(ManagerRoleMiddleware::class);
@@ -74,11 +79,12 @@ Route::middleware(['auth'])->prefix('manager')->group(function () {
     Route::put('/orders/update/{id}', [ManagerOrderController::class, 'updateStatus'])->name('manager.orders.update')->middleware(ManagerRoleMiddleware::class);
     });
 
+//маршруты каталога и товаров
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 
-
+//маршруты корзины и оформления заказа
 Route::middleware('auth')->group(function() {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
@@ -88,6 +94,8 @@ Route::middleware('auth')->group(function() {
 
 });
 
+
+//маршруты отзывов
 Route::middleware('auth')->group(function() {
     Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
     Route::put('/reviews/update/{id}', [ReviewController::class,'update'])->name('reviews.update');
@@ -97,12 +105,16 @@ Route::middleware('auth')->group(function() {
 
 });
 
+
+//маршруты избранного
 Route::middleware('auth')->group(function() {
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
     Route::post('/favorites/add', [FavoriteController::class, 'add'])->name('favorites.add');
     Route::delete('/favorites/{id}/remove', [FavoriteController::class, 'remove'])->name('favorites.remove');
 });
 
+
+//маршруты заказов
 Route::middleware('auth')->group(function() {
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');

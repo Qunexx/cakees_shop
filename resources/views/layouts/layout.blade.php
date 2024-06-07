@@ -142,6 +142,11 @@
                                             {{ __('Меню менеджера') }}
                                         </a>
                                     @endif
+                                    @if(Auth::user()->role == 'admin')
+                                        <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                            {{ __('Меню администратора') }}
+                                        </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('orders.index') }}">
                                         {{ __('История заказов') }}
                                     </a>
