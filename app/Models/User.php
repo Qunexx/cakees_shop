@@ -61,10 +61,6 @@ class User extends Authenticatable
         return $this->hasMany(Favorite::class);
     }
 
-    public function paymentMethods()
-    {
-        return $this->hasMany(PaymentMethod::class);
-    }
 
     public function reviews()
     {
