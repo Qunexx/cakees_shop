@@ -79,7 +79,7 @@ class RegisterController extends Controller
             $cart->user_id = $user->id;
             $cart->save();
 
-            
+
             $profile = new Profile();
             $profile->user_id = $user->id;
             $profile->first_name = $data['name'];
