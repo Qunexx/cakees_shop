@@ -13,6 +13,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="row mt-5">
             <div class="col-md-12">
                 <h3>Список пользователей и их роли</h3>

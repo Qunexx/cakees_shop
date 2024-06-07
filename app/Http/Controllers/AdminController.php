@@ -31,6 +31,13 @@ class AdminController extends Controller
 
     public function userRoleUpdate(Request $request, $id)
     {
+        $currentUser = auth()->user();
+
+        if ($currentUser->id == $id && !$currentUser->hasRole($request->role)) {
+            return redirect()->route('admin.users')->with('error', 'Вы не можете изменить свою собственную роль.');
+        }
+
+
         $request->validate([
             'role' => 'required|in:user,manager,admin'
         ]);
