@@ -84,6 +84,6 @@ class NewsSliderController extends Controller
             'image' => $slider->image,
         ]);
 
-        return redirect()->route('admin.sliders.index')->with('success', 'Слайд успешно обновлен.');
+        return redirect()->route('admin.sliders')->with('success', 'Слайд успешно обновлен.');
     }
 }
