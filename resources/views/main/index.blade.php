@@ -1,87 +1,35 @@
 @extends('layouts.layout')
 @section('content')
     <!-- slider section -->
+    <!-- slider section -->
     <section class="slider_section">
         <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-7 col-lg-6">
-                                <div class="detail-box">
-                                    <h1>Delicious Cakes</h1>
-                                    <p>
-                                        Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat
-                                        hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias,
-                                        veniam, vel architecto veritatis delectus repellat modi impedit sequi.
-                                    </p>
-                                    <div class="btn-box">
-                                        <a href="{{ route('products.index') }}" class="btn1">Order Now</a>
+                @foreach($sliders as $index => $slider)
+                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-6">
+                                    <div class="detail-box">
+                                        <h1>{{ $slider->title }}</h1>
+                                        <p>{{ $slider->description }}</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-5 col-lg-6">
-                                <div class="img-box col-lg-10 mx-auto px-0">
-                                    <img src="{{ asset('assets/images/slider-img.png') }}" alt="">
+                                <div class="col-md-5 col-lg-6">
+                                    <div class="img-box col-lg-10 mx-auto px-0">
+                                        <img src="{{ asset('images/' . $slider->image) }}" alt="{{ $slider->title }}">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-7 col-lg-6">
-                                <div class="detail-box">
-                                    <h1>Delicious Cakes</h1>
-                                    <p>
-                                        Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat
-                                        hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias,
-                                        veniam, vel architecto veritatis delectus repellat modi impedit sequi.
-                                    </p>
-                                    <div class="btn-box">
-                                        <a href="{{ route('products.index') }}" class="btn1">Order Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5 col-lg-6">
-                                <div class="img-box col-lg-10 mx-auto px-0">
-                                    <img src="{{ asset('assets/images/slider-img.png') }}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-7 col-lg-6">
-                                <div class="detail-box">
-                                    <h1>Delicious Cakes</h1>
-                                    <p>
-                                        Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat
-                                        hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias,
-                                        veniam, vel architecto veritatis delectus repellat modi impedit sequi.
-                                    </p>
-                                    <div class="btn-box">
-                                        <a href="{{ route('products.index') }}" class="btn1">Order Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5 col-lg-6">
-                                <div class="img-box col-lg-10 mx-auto px-0">
-                                    <img src="{{ asset('assets/images/slider-img.png') }}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="container">
                 <ol class="carousel-indicators">
-                    <li data-bs-target="#customCarousel1" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#customCarousel1" data-bs-slide-to="1"></li>
-                    <li data-bs-target="#customCarousel1" data-bs-slide-to="2"></li>
+                    @foreach($sliders as $index => $slider)
+                        <li data-bs-target="#customCarousel1" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                    @endforeach
                 </ol>
                 <a class="carousel-control-prev" href="#customCarousel1" role="button" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true" style="font-size: 3em;"></span>
@@ -213,44 +161,6 @@
 <!-- end products section -->
 
 
-<!-- client section -->
-@section("content4")
-    <section class="client_section layout_padding">
-        <div class="container">
-            <div class="heading_container heading_center psudo_white_primary mb_45">
-                <h2>What Says Our Customers</h2>
-            </div>
-            <div class="carousel-wrap row">
-                <div class="owl-carousel client_owl-carousel">
-                    <div class="item">
-                        <div class="box">
-                            <div class="detail-box">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <h6>Klara Smith</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="box">
-                            <div class="detail-box">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <h6>Jessica Hawk</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-@endsection
-
-<!-- end client section -->
 <!-- contact section -->
 @section("content5")
     <section class="contact_section layout_padding-bottom">

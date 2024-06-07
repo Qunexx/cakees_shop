@@ -28,7 +28,7 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <h5 class="card-title">Управление блоком новостей и объявлений</h5>
-                        <a href="{{ route('manager.products') }}" class="btn btn-primary">Перейти</a>
+                        <a href="{{ route('admin.sliders') }}" class="btn btn-primary">Перейти</a>
                     </div>
                 </div>
                     </div>

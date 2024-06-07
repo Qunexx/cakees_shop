@@ -30,6 +30,8 @@ Auth::routes();
 //главная
 Route::get('/main', [MainController::class, 'index'])->name('main.index');
 
+
+
 //контакты
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 Route::post('/contacts/store', [ContactController::class, 'store'])->name('contact.store');
@@ -62,6 +64,12 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     Route::get('/contacts', [ContactController::class, 'adminList'])->name('admin.contacts')->middleware(AdminRoleMiddleware::class);
     Route::delete('/contacts/destroy/{id}', [ContactController::class, 'adminDestroy'])->name('admin.contacts.destroy')->middleware(AdminRoleMiddleware::class);
+
+    Route::get('/sliders', [NewsSliderController::class, 'index'])->name('admin.sliders')->middleware(AdminRoleMiddleware::class);;
+    Route::post('/sliders', [NewsSliderController::class, 'store'])->name('admin.sliders.store')->middleware(AdminRoleMiddleware::class);;
+    Route::delete('/sliders/{id}', [NewsSliderController::class, 'destroy'])->name('admin.sliders.destroy')->middleware(AdminRoleMiddleware::class);;
+    Route::get('/sliders/{id}/edit', [NewsSliderController::class, 'edit'])->name('admin.sliders.edit')->middleware(AdminRoleMiddleware::class);;
+    Route::put('/sliders/{id}', [NewsSliderController::class, 'update'])->name('admin.sliders.update')->middleware(AdminRoleMiddleware::class);;
 });
 
 //Маршруты менеджера

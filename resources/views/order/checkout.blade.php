@@ -5,6 +5,8 @@
         <div class="heading_container heading_center mb-5">
             <h2 class="mt-5">Оплата</h2>
         </div>
+        <a href="{{ route('cart.index') }}" class="btn btn-secondary mb-3">Назад</a>
+        <h3>Список товаров:</h3>
         <form action="{{ route('orders.store') }}" method="POST">
             @csrf
             <div class="row">
@@ -27,9 +29,9 @@
                 <label for="paymentMethod">Способ оплаты:</label>
                 <select id="paymentMethod" class="form-control" name="payment_method">
                     @if(auth()->user())
-                        <option value="profile_card">Картой из профиля</option>
+                        <option value="card">Картой из профиля</option>
                     @else
-                        <option value="profile_card" disabled>Картой из профиля (необходимо добавить карту в профиль)</option>
+                        <option value="card" disabled>Картой из профиля (необходимо добавить карту в профиль)</option>
                     @endif
                     <option value="cash">Наличными при получении</option>
                 </select>
