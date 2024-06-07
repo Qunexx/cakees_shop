@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="heading_container heading_center">
-            <h2 class="mt-5">Ваши избранные товары</h2>
+            <h2 class="mt-5">Избранное</h2>
         </div>
         @if(session('success'))
             <div class="alert alert-success">

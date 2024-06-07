@@ -20,14 +20,17 @@
                         </div>
                     @endif
                     @if($orders->isEmpty())
-                        <div class="text-center">
-                            <h3 class="mt-5">
+                        <div class="text-center mb-3">
+                            <h3 class="mt-5 ">
                                 Кажется здесь пусто, обязательно нужно исправить это, добавив в избранное наивкуснейший тортик из нашей пекарни =)
                             </h3>
-                            <div class="btn-box mt-3">
+                        </div>
+                            <div class="text-center mt-3">
+                            <div class="btn-box mt-3 mb-3">
                                 <a href="{{ route('products.index') }}" class="btn btn-primary">Перейти в каталог</a>
                             </div>
                         </div>
+                </div>
                         @else
                         <table class="table table-striped">
                             <thead>

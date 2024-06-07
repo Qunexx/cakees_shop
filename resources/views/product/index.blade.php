@@ -15,7 +15,7 @@
                     </div>
                 @endif
             <div class="heading_container heading_center">
-                <h2>Наши изделия</h2>
+                <h2>Каталог</h2>
             </div>
 
             <div class="row">

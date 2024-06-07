@@ -56,7 +56,10 @@ Route::middleware(['auth'])->group(function () {
 //Маршруты администратора
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard')->middleware(AdminRoleMiddleware::class);
-    Route::get('/users', [AdminController::class, 'index'])->name('admin.users')->middleware(AdminRoleMiddleware::class);
+    Route::get('/users', [AdminController::class, 'users'])->name('admin.users')->middleware(AdminRoleMiddleware::class);
+    Route::get('/user/{id}/edit', [AdminController::class, 'userEdit'])->name('admin.users.edit')->middleware(AdminRoleMiddleware::class);
+    Route::put('/user/{id}', [AdminController::class, 'userRoleUpdate'])->name('admin.users.update')->middleware(AdminRoleMiddleware::class);
+
     Route::get('/contacts', [ContactController::class, 'adminList'])->name('admin.contacts')->middleware(AdminRoleMiddleware::class);
     Route::delete('/contacts/destroy/{id}', [ContactController::class, 'adminDestroy'])->name('admin.contacts.destroy')->middleware(AdminRoleMiddleware::class);
 });

@@ -27,7 +27,7 @@ class ManagerOrderController extends Controller
         $order->status = $request->status;
         $order->save();
 
-        return redirect()->route('orders.index')->with('success', 'Статус заказа успешно обновлен!');
+        return redirect()->route('manager.orders.index')->with('success', 'Статус заказа успешно обновлен!');
     }
 
 
