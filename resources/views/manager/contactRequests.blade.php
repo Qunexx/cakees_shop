@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="heading_container heading_center">
-            <h2>Заявки на обратную связь</h2>
+            <h2 class="mt-5">Заявки на обратную связь</h2>
         </div>
         @if (session('success'))
             <div class="alert alert-success">

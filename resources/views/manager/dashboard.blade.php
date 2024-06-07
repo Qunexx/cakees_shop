@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <h5 class="card-title">Управление заказами</h5>
-                        <a href="{{ route('manager.orders') }}" class="btn btn-primary">Перейти</a>
+                        <a href="{{ route('manager.orders.index') }}" class="btn btn-primary">Перейти</a>
                     </div>
                 </div>
             </div>

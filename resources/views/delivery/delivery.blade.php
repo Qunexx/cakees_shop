@@ -23,7 +23,7 @@
                         <p>
                             We understand the importance of timely delivery, especially for special occasions. That's why we offer various delivery options to suit your needs. Whether it's a birthday, wedding, or any other celebration, you can count on us to deliver your orders right to your doorstep.
                         </p>
-                        <a href="{{ route('contact') }}">
+                        <a href="{{ route('contacts.index') }}">
                             Contact Us for More Information
                         </a>
                     </div>

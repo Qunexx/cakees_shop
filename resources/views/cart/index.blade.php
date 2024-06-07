@@ -43,7 +43,7 @@
             <h3>Сумма: <span id="total-price">{{ number_format($totalPrice) }} руб</span></h3>
         </div>
         <div class="btn-box text-center">
-            <a href="{{ route('order.index') }}" class="btn btn-primary mb-5">Оплатить</a>
+            <a href="{{ route('cart.checkout') }}" class="btn btn-primary mb-5">Оплатить</a>
         </div>
     </div>
     <div class="footer"></div>
