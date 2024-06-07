@@ -12,6 +12,7 @@
                 {{ session('error') }}
             </div>
         @endif
+            
         <div class="row">
             <div class="col-md-6">
                 <div class="product-image">

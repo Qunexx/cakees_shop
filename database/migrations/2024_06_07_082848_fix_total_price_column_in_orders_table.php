@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->decimal('total_price', 8, 2)->change();
+            $table->decimal('total_price', 10, 2)->change();
         });
     }
 };

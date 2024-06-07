@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <!-- slider section -->
+
     <!-- slider section -->
     <section class="slider_section">
         <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
@@ -13,6 +13,7 @@
                                     <div class="detail-box">
                                         <h1>{{ $slider->title }}</h1>
                                         <p>{{ $slider->description }}</p>
+                                        <a href="{{route('products.index') }}" class="btn btn-primary">Заказать сейчас</a>
                                     </div>
                                 </div>
                                 <div class="col-md-5 col-lg-6">
@@ -57,7 +58,7 @@
                                 <img src="{{ asset('assets/images/c1.jpg') }}" alt="">
                             </div>
                             <div class="detail-box">
-                                <h5>Birthday Cakes</h5>
+                                <h5>Торты ко дню рождения</h5>
                             </div>
                         </div>
                     </a>
@@ -69,7 +70,7 @@
                                 <img src="{{ asset('assets/images/c2.jpg') }}" alt="">
                             </div>
                             <div class="detail-box">
-                                <h5>Wedding Cakes</h5>
+                                <h5>Свадебные торты</h5>
                             </div>
                         </div>
                     </a>
@@ -81,7 +82,7 @@
                                 <img src="{{ asset('assets/images/c3.jpg') }}" alt="">
                             </div>
                             <div class="detail-box">
-                                <h5>Cupcakes</h5>
+                                <h5>Капкейки</h5>
                             </div>
                         </div>
                     </a>
@@ -105,15 +106,12 @@
                 <div class="col-md-6">
                     <div class="detail-box">
                         <div class="heading_container">
-                            <h2>We Are Торт’ Эль</h2>
+                            <h2>Мы - Торт’ Эль</h2>
                         </div>
                         <p>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form, by injected humour, or randomised words which don't look
-                            even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be
-                            sure there isn't anything embarrassing hidden in the middle of text. All
+                            "Торт'Эль" начала свою деятельность в 2024 году в городе Йошкар-Ола. Основные принципы компании - высокое качество продукции, доступные цены и внимание к потребностям клиентов.
                         </p>
-                        <a href="">Read More</a>
+                        <a href="{{route('about.index')}}">Прочитать подробнее</a>
                     </div>
                 </div>
             </div>

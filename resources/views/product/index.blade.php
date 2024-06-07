@@ -19,7 +19,16 @@
             </div>
 
             <div class="row">
-
+                @if($products->isEmpty())
+                    <div class="text-center mb-sm-5">
+                        <h3 class="mt-5 mb-5">
+                            Кажется здесь пусто, скоро обязательно что-то появится, следите за нашими обновлениями  =)
+                        </h3>
+                        <div class="btn-box mt-5">
+                            <a href="{{ route('products.index') }}" class="btn btn-primary">Перейти в каталог</a>
+                        </div>
+                    </div>
+                @endif
                 <div class="row">
                     @foreach($products as $product)
                         <div class="col-sm-6 col-md-4 col-lg-3 mb-4" data-id="{{ $product->id }}">

@@ -15,22 +15,20 @@
                 <div class="detail-box">
                     <div class="heading_container">
                         <h2>
-                            We Are Торт’ Эль
+                            Мы Торт’ Эль
                         </h2>
                     </div>
-                    <p>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                        in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-                        are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-                        the middle of text. All
-                    </p>
-                    <a href="">
-                        Read More
-                    </a>
+                    <h5>
+                        "Торт'Эль" начала свою деятельность в 2024 году в городе Йошкар-Ола.
+                        Основные принципы компании - высокое качество продукции, доступные цены и внимание к потребностям клиентов.
+                        Благодаря постоянному взаимодействию с поставщиками, компания постоянно совершенствует свои продукты, не повышая цен.
+                        Основной специализацией "Торт'Эль" являются изделия из бисквитного и слоеного теста, для производства которых используется передовое оборудование от ведущих мировых производителей.
+                        Компания стремится к постоянному росту, расширяя производственные мощности и ассортимент, с фокусом на здоровом питании и безопасных технологиях производства.
+                    </h5>
                 </div>
             </div>
         </div>
     </div>
 </section>
 @endsection
-<!-- end about section -->
+

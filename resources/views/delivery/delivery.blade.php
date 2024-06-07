@@ -13,19 +13,36 @@
                 <div class="col-md-6">
                     <div class="detail-box">
                         <div class="heading_container">
-                            <h2>
-                                Delivery Services
+                            <h2 class="mt-5 mb-3">
+                                Услуги доставки
                             </h2>
                         </div>
                         <p>
-                            At CakeeShop, we offer reliable and efficient delivery services to ensure that your cakes and pastries arrive fresh and on time. Our dedicated delivery team is committed to providing you with the best service possible, handling your orders with care and precision.
+                            В Торт'Эль мы предлагаем надежные и эффективные услуги доставки, чтобы ваши торты рибывали свежими и вовремя. Наша преданная команда доставки стремится предоставить вам лучший сервис, обращаясь с вашими заказами с заботой и точностью.
                         </p>
                         <p>
-                            We understand the importance of timely delivery, especially for special occasions. That's why we offer various delivery options to suit your needs. Whether it's a birthday, wedding, or any other celebration, you can count on us to deliver your orders right to your doorstep.
+                            Мы понимаем важность своевременной доставки, особенно для особых мероприятий. Именно поэтому мы предлагаем различные варианты доставки, чтобы удовлетворить ваши потребности. Будь то день рождения, свадьба или любое другое торжество, вы можете рассчитывать на нас, чтобы доставить ваши заказы прямо к вашей двери.
                         </p>
+                        <p>
+                            Мы осуществляем доставку по всему городу и в радиусе 20 минут от него.
+                        </p>
+
                         <a href="{{ route('contacts.index') }}">
-                            Contact Us for More Information
+                            Свяжитесь с нами для получения дополнительной информации.
                         </a>
+
+                        <div class="delivery_options mt-4">
+                            <h3>Варианты доставки</h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <i class="fa fa-truck" aria-hidden="true"></i> Доставка курьером: Мы доставим ваш заказ прямо к вашей двери, чтобы вы могли наслаждаться свежими тортами без лишних хлопот.
+                                </li>
+                                <li>
+                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i> Самовывоз: Вы можете забрать свой заказ в нашем магазине в удобное для вас время.
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="{{route('products.index') }}" class="btn btn-primary">Заказать сейчас</a>
                     </div>
                 </div>
             </div>
