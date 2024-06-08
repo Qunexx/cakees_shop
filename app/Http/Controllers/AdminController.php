@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function users()
     {
         $users = User::get();
-        return view('admin.users.index',compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     public function userEdit($id)
@@ -26,7 +26,7 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         $roles = ['user', 'manager', 'admin'];
 
-        return view('admin.users.edit',compact('user','roles'));
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     public function userRoleUpdate(Request $request, $id)
@@ -48,10 +48,6 @@ class AdminController extends Controller
 
         return redirect()->route('admin.users')->with('success', 'Роль пользователя успешно обновлена!');
     }
-
-
-
-
 
 
 }

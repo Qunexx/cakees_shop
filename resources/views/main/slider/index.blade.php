@@ -28,7 +28,8 @@
             <div class="container">
                 <ol class="carousel-indicators">
                     @foreach($sliders as $index => $slider)
-                        <li data-bs-target="#customCarousel1" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                        <li data-bs-target="#customCarousel1" data-bs-slide-to="{{ $index }}"
+                            class="{{ $index == 0 ? 'active' : '' }}"></li>
                     @endforeach
                 </ol>
                 <a class="carousel-control-prev" href="#customCarousel1" role="button" data-bs-slide="prev">

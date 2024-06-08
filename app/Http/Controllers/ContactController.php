@@ -34,12 +34,12 @@ class ContactController extends Controller
     }
 
 
-
     public function managerList()
     {
         $contacts = ContactRequest::all();
         return view('manager.contactRequests', compact('contacts'));
     }
+
     public function adminList()
     {
         $contacts = ContactRequest::all();
@@ -48,14 +48,15 @@ class ContactController extends Controller
 
     public function managerDestroy($id)
     {
-        $contact= ContactRequest::findOrFail($id);
+        $contact = ContactRequest::findOrFail($id);
         $contact->delete();
 
         return redirect()->route('manager.contacts')->with('success', 'Заявка успешно удалена.');
     }
+
     public function adminDestroy($id)
     {
-        $contact= ContactRequest::findOrFail($id);
+        $contact = ContactRequest::findOrFail($id);
         $contact->delete();
 
         return redirect()->route('admin.contacts')->with('success', 'Заявка успешно удалена.');

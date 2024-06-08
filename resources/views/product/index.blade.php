@@ -1,4 +1,3 @@
-
 @extends("layouts.layout")
 @section("content")
 
@@ -10,10 +9,10 @@
                 </div>
             @endif
             @if (session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                @endif
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="heading_container heading_center">
                 <h2>Каталог</h2>
             </div>
@@ -22,7 +21,7 @@
                 @if($products->isEmpty())
                     <div class="text-center mb-sm-5">
                         <h3 class="mt-5 mb-5">
-                            Кажется здесь пусто, скоро обязательно что-то появится, следите за нашими обновлениями  =)
+                            Кажется здесь пусто, скоро обязательно что-то появится, следите за нашими обновлениями =)
                         </h3>
                         <div class="btn-box mt-5">
                             <a href="{{ route('products.index') }}" class="btn btn-primary">Перейти в каталог</a>
@@ -33,7 +32,8 @@
                     @foreach($products as $product)
                         <div class="col-sm-6 col-md-4 col-lg-3 mb-4" data-id="{{ $product->id }}">
                             <div class="card h-100">
-                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;">
+                                <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}"
+                                     class="card-img-top img-fluid" style="height: 200px; object-fit: cover;">
                                 <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">{{ $product->name }}</h5>
                                     <p class="card-text">{{Str::limit($product->description, 10)}}</p>
@@ -43,7 +43,9 @@
                                     <form action="{{ route('cart.add') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                        <button type="submit" class="btn btn-primary add-to-cart-btn mb-2">Добавить в корзину</button>
+                                        <button type="submit" class="btn btn-primary add-to-cart-btn mb-2">Добавить в
+                                            корзину
+                                        </button>
                                     </form>
                                     <form action="{{ route('favorites.add') }}" method="POST">
                                         @csrf
@@ -53,7 +55,8 @@
                                         </button>
                                     </form>
 
-                                    <a class="btn btn-secondary mt-auto" href="{{route("products.show",$product->id)}}" data-id="{{$product->id}}">Подробнее о изделии</a>
+                                    <a class="btn btn-secondary mt-auto" href="{{route("products.show",$product->id)}}"
+                                       data-id="{{$product->id}}">Подробнее о изделии</a>
                                 </div>
                             </div>
                         </div>
@@ -64,6 +67,5 @@
 
 
     </section>
-
 
 @endsection

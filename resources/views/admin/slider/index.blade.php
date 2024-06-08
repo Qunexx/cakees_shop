@@ -56,10 +56,12 @@
                         <tr>
                             <td>{{ $slider->title }}</td>
                             <td>{{ $slider->description }}</td>
-                            <td><img src="{{ asset('images/' . $slider->image) }}" alt="{{ $slider->title }}" style="width: 100px;"></td>
+                            <td><img src="{{ asset('images/' . $slider->image) }}" alt="{{ $slider->title }}"
+                                     style="width: 100px;"></td>
                             <td>
                                 <a href="{{ route('admin.sliders.edit', $slider->id) }}" class="btn btn-warning">Изменить</a>
-                                <form action="{{ route('admin.sliders.destroy', $slider->id) }}" method="POST" onsubmit="return confirm('Вы уверены, что хотите удалить этот слайд?');">
+                                <form action="{{ route('admin.sliders.destroy', $slider->id) }}" method="POST"
+                                      onsubmit="return confirm('Вы уверены, что хотите удалить этот слайд?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Удалить</button>

@@ -15,28 +15,32 @@
                     <div class="form_container">
                         <form id="profile-form">
                             @csrf
-                            <!-- Personal Information -->
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="first_name" placeholder="Имя" value="{{ $profile->first_name ?? '' }}" required>
+                                        <input type="text" class="form-control" name="first_name" placeholder="Имя"
+                                               value="{{ $profile->first_name ?? '' }}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="last_name" placeholder="Фамилия" value="{{ $profile->last_name ?? '' }}" required>
+                                        <input type="text" class="form-control" name="last_name" placeholder="Фамилия"
+                                               value="{{ $profile->last_name ?? '' }}" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="middle_name" placeholder="Отчество" value="{{ $profile->middle_name ?? '' }}">
+                                        <input type="text" class="form-control" name="middle_name"
+                                               placeholder="Отчество" value="{{ $profile->middle_name ?? '' }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="phone_number" placeholder="Номер телефона" value="{{ $profile->phone_number ?? '' }}" required>
+                                        <input type="text" class="form-control" name="phone_number"
+                                               placeholder="Номер телефона" value="{{ $profile->phone_number ?? '' }}"
+                                               required>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +50,8 @@
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="address" placeholder="Адрес" value="{{ $profile->address ?? '' }}" required>
+                                        <input type="text" class="form-control" name="address" placeholder="Адрес"
+                                               value="{{ $profile->address ?? '' }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +61,9 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="delivery_options" id="delivery" value="delivery" {{ ($profile->delivery_options ?? '') == 'delivery' ? 'checked' : '' }} required>
+                                        <input class="form-check-input" type="radio" name="delivery_options"
+                                               id="delivery" value="delivery"
+                                               {{ ($profile->delivery_options ?? '') == 'delivery' ? 'checked' : '' }} required>
                                         <label class="form-check-label" for="delivery">
                                             Доставка
                                         </label>
@@ -64,7 +71,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="delivery_options" id="pickup" value="pickup" {{ ($profile->delivery_options ?? '') == 'pickup' ? 'checked' : '' }} required>
+                                        <input class="form-check-input" type="radio" name="delivery_options" id="pickup"
+                                               value="pickup"
+                                               {{ ($profile->delivery_options ?? '') == 'pickup' ? 'checked' : '' }} required>
                                         <label class="form-check-label" for="pickup">
                                             С собой
                                         </label>
@@ -77,7 +86,9 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="payment_methods" id="card" value="card" {{ ($profile->payment_methods ?? '') == 'card' ? 'checked' : '' }} required>
+                                        <input class="form-check-input" type="radio" name="payment_methods" id="card"
+                                               value="card"
+                                               {{ ($profile->payment_methods ?? '') == 'card' ? 'checked' : '' }} required>
                                         <label class="form-check-label" for="card">
                                             Картой
                                         </label>
@@ -85,7 +96,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="payment_methods" id="cash" value="cash" {{ ($profile->payment_methods ?? '') == 'cash' ? 'checked' : '' }} required>
+                                        <input class="form-check-input" type="radio" name="payment_methods" id="cash"
+                                               value="cash"
+                                               {{ ($profile->payment_methods ?? '') == 'cash' ? 'checked' : '' }} required>
                                         <label class="form-check-label" for="cash">
                                             Наличными
                                         </label>
@@ -113,7 +126,7 @@
     </section>
 
     <script>
-        document.getElementById('profile-form').addEventListener('submit', function(e) {
+        document.getElementById('profile-form').addEventListener('submit', function (e) {
             e.preventDefault();
 
             let formData = new FormData(this);

@@ -13,7 +13,8 @@
                                     <div class="detail-box">
                                         <h1>{{ $slider->title }}</h1>
                                         <p>{{ $slider->description }}</p>
-                                        <a href="{{route('products.index') }}" class="btn btn-primary">Заказать сейчас</a>
+                                        <a href="{{route('products.index') }}" class="btn btn-primary">Заказать
+                                            сейчас</a>
                                     </div>
                                 </div>
                                 <div class="col-md-5 col-lg-6">
@@ -29,7 +30,8 @@
             <div class="container">
                 <ol class="carousel-indicators">
                     @foreach($sliders as $index => $slider)
-                        <li data-bs-target="#customCarousel1" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                        <li data-bs-target="#customCarousel1" data-bs-slide-to="{{ $index }}"
+                            class="{{ $index == 0 ? 'active' : '' }}"></li>
                     @endforeach
                 </ol>
                 <a class="carousel-control-prev" href="#customCarousel1" role="button" data-bs-slide="prev">
@@ -109,7 +111,8 @@
                             <h2>Мы - Торт’ Эль</h2>
                         </div>
                         <p>
-                            "Торт'Эль" начала свою деятельность в 2024 году в городе Йошкар-Ола. Основные принципы компании - высокое качество продукции, доступные цены и внимание к потребностям клиентов.
+                            "Торт'Эль" начала свою деятельность в 2024 году в городе Йошкар-Ола. Основные принципы
+                            компании - высокое качество продукции, доступные цены и внимание к потребностям клиентов.
                         </p>
                         <a href="{{route('about.index')}}">Прочитать подробнее</a>
                     </div>

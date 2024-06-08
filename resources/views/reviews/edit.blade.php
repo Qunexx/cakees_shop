@@ -15,7 +15,8 @@
 
                             <div class="form-group mb-3">
                                 <label for="comment">Комментарий</label>
-                                <textarea name="comment" id="comment" class="form-control" rows="3">{{ $review->comment }}</textarea>
+                                <textarea name="comment" id="comment" class="form-control"
+                                          rows="3">{{ $review->comment }}</textarea>
                             </div>
 
                             <div class="form-group mb-3">

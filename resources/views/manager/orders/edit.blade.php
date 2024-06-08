@@ -35,8 +35,11 @@
             <div class="form-group mb-3">
                 <label for="status">Статус</label>
                 <select class="form-control" id="status" name="status" required>
-                    <option value="considering" {{ $order->status == 'considering' ? 'selected' : '' }}>Рассматривается</option>
-                    <option value="in progress" {{ $order->status == 'in progress' ? 'selected' : '' }}>В процессе</option>
+                    <option value="considering" {{ $order->status == 'considering' ? 'selected' : '' }}>
+                        Рассматривается
+                    </option>
+                    <option value="in progress" {{ $order->status == 'in progress' ? 'selected' : '' }}>В процессе
+                    </option>
                     <option value="completed" {{ $order->status == 'completed' ? 'selected' : '' }}>Завершен</option>
                     <option value="canceled" {{ $order->status == 'canceled' ? 'selected' : '' }}>Отменен</option>
                 </select>

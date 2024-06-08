@@ -26,7 +26,8 @@
                     <td>{{ $order->total_price }} руб</td>
                     <td>{{ $order->status }}</td>
                     <td>
-                        <a href="{{ route('manager.orders.edit', $order->id) }}" class="btn btn-info btn-sm">Подробнее</a>
+                        <a href="{{ route('manager.orders.edit', $order->id) }}"
+                           class="btn btn-info btn-sm">Подробнее</a>
                     </td>
                 </tr>
             @endforeach
